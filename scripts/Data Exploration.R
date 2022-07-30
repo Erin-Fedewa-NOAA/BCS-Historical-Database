@@ -17,7 +17,7 @@ BCSdat <- read.csv("./data/BCS Master Data.csv")
 #####################################################
 #Data exploration of full dataset 
 
-nrow(BCSdat) # 19,045 samples!
+nrow(BCSdat) # 19,045 samples!!
 range(pull(BCSdat, Year)) #Some data back to 1978
 distinct(BCSdat, Species_Name)
 distinct(BCSdat, LME) #1=Bering Sea, 2=GOA, 54=NBS/Chukchi, 55=Beaufort, 
