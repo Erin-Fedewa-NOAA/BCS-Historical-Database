@@ -1,0 +1,36 @@
+fileName,variableName,description,unitText
+BCS Master Data.csv,SPNO,Unique specimen ID. First four numbers correspond to year of collection,ID Code
+BCS Master Data.csv,Species_Name,Decapod species sampled,text
+BCS Master Data.csv,Sex,"0=NA, 1=Male, 2=Female, 3=Unknown, 4=Hermaphrodite, 5=Transitional, 6=indeterminant",numeric
+BCS Master Data.csv,Size,Carapace length (lithodid) or carapace width (Chioneocetes),millimeter
+BCS Master Data.csv,Chela,Height at widest point of right chela: males only,millimeter
+BCS Master Data.csv,Shell_Condition,"0=premolt/molting, 1=softshell, 2=newshell, 3=oldshell, 4=very oldshell, 5=graveyard, 9=unk",numeric
+BCS Master Data.csv,Clutch,"Female egg color, egg condition and clutch size information. See ""Clutch_Codes.csv"" for numeric codes",millimeter
+BCS Master Data.csv,Collection_Comments,General comments about specimen/nature of collection,text
+BCS Master Data.csv,BODYID,"Body location of visual anomaly. See ""Histology_Codes.csv"" for numeric codes",numeric
+BCS Master Data.csv,VISUAL,"Visual anamoly. See ""Histology_Codes.csv"" for numeric codes",numeric
+BCS Master Data.csv,DISTID,"Distibution of physical anomaly. See ""Histology_Codes.csv"" for numeric codes",numeric
+BCS Master Data.csv,Year,Year of specimen collection,numeric
+BCS Master Data.csv,Date,Date of specimen collection,MM/DD/YYYYHH::MM
+BCS Master Data.csv,HISTO_result,"Etiology results for organ/tissue/cell examined: See ""Histology_Codes.csv"" for numeric codes",numeric
+BCS Master Data.csv,SMEAR_result,"Results from visual inspection of hemolymph smear preparations stained with Geimsa and read with a compound microscope for BCS diagnosis. Numeric results of 0 = BCS negative, 1 = BCS positive, 3=Undetermined, 4=Unreadable slide, 8=slide missing, 7777=no result-smear was made, 9999=no smear made for sample",numeric
+BCS Master Data.csv,T_Rating,"T_Rating field has more detail about the cells on the slide for BCS positive samples including Hematodinium stage (T = trophont, P = prespore, D = dinospore) and relative amount of that cell type ranging from 1-5 (1 = up to 10% of cells viewed and 5 = over 90% of cells viewed). T_Rating is not available for samples collected prior to 1999",numeric
+BCS Master Data.csv,BCS_PCR_results,"PCR Assay results for BCS diagnosis. Numeric results of 0=BCS negative, 1=BCS positive, 3=inconclusive (ie disagreement at loci, extra band), 4=results pending, 7777=No result-DNA preserved, 9999=No DNA preserved for this sample",numeric
+BCS Master Data.csv,Specific_Location,"Specific location of sample collection within LME. See ""Location_Codes.csv"" for numeric codes",numeric
+BCS Master Data.csv,General_Location,"General location of sample collection corresponding with LME. See ""Location_Codes.csv"" for numeric codes",numeric
+BCS Master Data.csv,ReferenceNO,NA,NA
+BCS Master Data.csv,C_V_H,"The concatenation of the Cruise, Vessel and Haul for the collection location. For some records that do not have a cruise/vessel/haul, a combination of 0_0_SPNO is used instead to ensure a unique value is used for location data",numeric
+BCS Master Data.csv,Cruise,Cruise ID for Bering Sea/GOA/Atlantic bottom trawl surveys. See RACEBASE or AKFIN for additional NOAA cruise metadata,numeric
+BCS Master Data.csv,Vessel,"ID number of the vessel used to collect data for that haul associated with vessel name. See ""Vessel_Codes.csv"" for numeric codes",numeric
+BCS Master Data.csv,Haul,"Uniquely identifies a sampling event (haul) within an AFSC cruise. It is a sequential number, in chronological order of occurrence.",numeric
+BCS Master Data.csv,StationID,Alpha-numeric designation for the station established in the design of AFSC standardized surveys.,numeric/text
+BCS Master Data.csv,Stratum,RACE database statistical area for analyzing data. Strata were designed using bathymetry and other geographic and habitat-related elements. See AKFIN for a complete list of stratum descriptions,numeric
+BCS Master Data.csv,LME,"Large marine ecosystem of collection: 1=Bering Sea/Slope, 2=GOA/SEAK, 54=NE Arctic/Chukchi Sea, 55=Beaufort Sea, 65=Aleutian Islands, 80=Atlantic Coast/Newfoundland",numeric
+BCS Master Data.csv,Bering_Sea_Regions,NA,numeric
+BCS Master Data.csv,Haul_Date,The date (MM/DD/YYYY) and time (HH:MM) of the beginning of the haul.,MM/DD/YYYYHH::MM
+BCS Master Data.csv,Latitude,Latitude of specimen collection. Designates latitude at start of haul for AFSC standardized surveys,decimalDegree
+BCS Master Data.csv,Longitude,Longitude of specimen collection. Designates longititude at start of haul for AFSC standardized surveys,decimalDegree
+BCS Master Data.csv,Depth,Bottom depth,meters
+BCS Master Data.csv,Bottom_Type,Substrate type recorded during survey: See AFSC Groundfish Survey Codes Bottom Type Code Supplementary Table (Pg 40),numeric
+BCS Master Data.csv,Bottom_Temp,Bottom temperature (tenths of a degree Celsius); NA indicates removed or missing values.,Degree C
+BCS Master Data.csv,Surface_Temp,Surface temperature (tenths of a degree Celsius); NA indicates removed or missing values.,Degree C
