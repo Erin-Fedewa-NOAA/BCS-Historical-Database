@@ -1,0 +1,79 @@
+Clutch,Egg_Color,Egg_Condition,Clutch_Size
+000,no eggs,no eggs,immature
+001,no eggs,no eggs,mature without eggs
+041,no eggs,empty egg cases,mature with no eggs
+212,purple,uneyed eggs,trace to 1/8 full
+213,purple,uneyed eggs,1/4 full
+214,purple,uneyed eggs,1/2 full
+215,purple,uneyed eggs,3/4 full
+216,purple,uneyed eggs,full
+222,purple,eyed eggs,trace to 1/8 full
+223,purple,eyed eggs,1/4 full
+224,purple,eyed eggs,1/2 full
+225,purple,eyed eggs,3/4 full
+226,purple,eyed eggs,full
+232,purple,dead eggs,trace to 1/8 full
+233,purple,dead eggs,1/4 full
+234,purple,dead eggs,1/2 full
+235,purple,dead eggs,3/4 full
+236,purple,dead eggs,full
+312,brown,uneyed eggs,trace to 1/8 full
+313,brown,uneyed eggs,1/4 full
+314,brown,uneyed eggs,1/2 full
+315,brown,uneyed eggs,3/4 full
+316,brown,uneyed eggs,full
+322,brown,eyed eggs,trace to 1/8 full
+323,brown,eyed eggs,1/4 full
+324,brown,eyed eggs,1/2 full
+325,brown,eyed eggs,3/4 full
+326,brown,eyed eggs,full
+332,brown,dead eggs,trace to 1/8 full
+333,brown,dead eggs,1/4 full
+334,brown,dead eggs,1/2 full
+335,brown,dead eggs,3/4 full
+336,brown,dead eggs,full
+412,orange,uneyed eggs,trace to 1/8 full
+413,orange,uneyed eggs,1/4 full
+414,orange,uneyed eggs,1/2 full
+415,orange,uneyed eggs,3/4 full
+416,orange,uneyed eggs,full
+422,orange,eyed eggs,trace to 1/8 full
+423,orange,eyed eggs,1/4 full
+424,orange,eyed eggs,1/2 full
+425,orange,eyed eggs,3/4 full
+426,orange,eyed eggs,full
+432,orange,dead eggs,trace to 1/8 full
+433,orange,dead eggs,1/4 full
+434,orange,dead eggs,1/2 full
+435,orange,dead eggs,3/4 full
+436,orange,dead eggs,full
+512,purple-brown,uneyed eggs,trace to 1/8 full
+513,purple-brown,uneyed eggs,1/4 full
+514,purple-brown,uneyed eggs,1/2 full
+515,purple-brown,uneyed eggs,3/4 full
+516,purple-brown,uneyed eggs,full
+522,purple-brown,eyed eggs,trace to 1/8 full
+523,purple-brown,eyed eggs,1/4 full
+524,purple-brown,eyed eggs,1/2 full
+525,purple-brown,eyed eggs,3/4 full
+526,purple-brown,eyed eggs,full
+532,purple-brown,dead eggs,trace to 1/8 full
+533,purple-brown,dead eggs,1/4 full
+534,purple-brown,dead eggs,1/2 full
+535,purple-brown,dead eggs,3/4 full
+536,purple-brown,dead eggs,full
+612,pink,uneyed eggs,trace to 1/8 full
+613,pink,uneyed eggs,1/4 full
+614,pink,uneyed eggs,1/2 full
+615,pink,uneyed eggs,3/4 full
+616,pink,uneyed eggs,full
+622,pink,eyed eggs,trace to 1/8 full
+623,pink,eyed eggs,1/4 full
+624,pink,eyed eggs,1/2 full
+625,pink,eyed eggs,3/4 full
+626,pink,eyed eggs,full
+632,pink,dead eggs,trace to 1/8 full
+633,pink,dead eggs,1/4 full
+634,pink,dead eggs,1/2 full
+635,pink,dead eggs,3/4 full
+636,pink,dead eggs,full

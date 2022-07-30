@@ -1,0 +1,587 @@
+<html>
+  <head>
+    <title>Historic bitter crab syndrome monitoring dataset</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="application/ld+json">
+      {
+  "@context": "http://schema.org",
+  "type": "Dataset",
+  "name": "Historic bitter crab syndrome monitoring dataset",
+  "creator": [
+    {
+      "type": "Person",
+      "id": null,
+      "email": "erin.fedewa@noaa.gov",
+      "affiliation": "NOAA-AFSC",
+      "name": "Erin Fedewa"
+    },
+    {
+      "type": "Person",
+      "id": null,
+      "email": null,
+      "affiliation": "NOAA-AFSC (retired)",
+      "name": "Pam Jensen"
+    }
+  ],
+  "description": "This dataset contains sample collection data for all majid, cancrid and lithodid decapods collected by the NOAA AFSC Pathobiology group from 1978 to 2013",
+  "datePublished": "7/25/2022",
+  "keywords": ["bitter crab syndrome", "Bering Sea", "Gulf of Alaska", "tanner crab", "snow crab", "red king crab"],
+  "funder": null,
+  "temporalCoverage": "1978-06-01/2013-10-01",
+  "license": null,
+  "spatialCoverage": {
+    "type": "Place",
+    "name": "LME's: Bering Sea, GOA, Arctic, Beaufort Sea, Aleutian Islands, Atlantic Coast/Newfoundland",
+    "geo": {
+      "type": "GeoShape",
+      "box": "72.0025 -132.8532 51.59767 -179.9203"
+    }
+  },
+  "variableMeasured": [
+    {
+      "type": "PropertyValue",
+      "unitText": "ID Code",
+      "name": "SPNO",
+      "description": "Unique specimen ID. First four numbers correspond to year of collection"
+    },
+    {
+      "type": "PropertyValue",
+      "unitText": "text",
+      "name": "Species_Name",
+      "description": "Decapod species sampled"
+    },
+    {
+      "type": "PropertyValue",
+      "unitText": "numeric",
+      "name": "Sex",
+      "description": "0=NA, 1=Male, 2=Female, 3=Unknown, 4=Hermaphrodite, 5=Transitional, 6=indeterminant"
+    },
+    {
+      "type": "PropertyValue",
+      "unitText": "millimeter",
+      "name": "Size",
+      "description": "Carapace length (lithodid) or carapace width (Chioneocetes)"
+    },
+    {
+      "type": "PropertyValue",
+      "unitText": "millimeter",
+      "name": "Chela",
+      "description": "Height at widest point of right chela: males only"
+    },
+    {
+      "type": "PropertyValue",
+      "unitText": "numeric",
+      "name": "Shell_Condition",
+      "description": "0=premolt/molting, 1=softshell, 2=newshell, 3=oldshell, 4=very oldshell, 5=graveyard, 9=unk"
+    },
+    {
+      "type": "PropertyValue",
+      "unitText": "millimeter",
+      "name": "Clutch",
+      "description": "Female egg color, egg condition and clutch size information. See \"Clutch_Codes.csv\" for numeric codes"
+    },
+    {
+      "type": "PropertyValue",
+      "unitText": "text",
+      "name": "Collection_Comments",
+      "description": "General comments about specimen/nature of collection"
+    },
+    {
+      "type": "PropertyValue",
+      "unitText": "numeric",
+      "name": "BODYID",
+      "description": "Body location of visual anomaly. See \"Histology_Codes.csv\" for numeric codes"
+    },
+    {
+      "type": "PropertyValue",
+      "unitText": "numeric",
+      "name": "VISUAL",
+      "description": "Visual anamoly. See \"Histology_Codes.csv\" for numeric codes"
+    },
+    {
+      "type": "PropertyValue",
+      "unitText": "numeric",
+      "name": "DISTID",
+      "description": "Distibution of physical anomaly. See \"Histology_Codes.csv\" for numeric codes"
+    },
+    {
+      "type": "PropertyValue",
+      "unitText": "numeric",
+      "name": "Year",
+      "description": "Year of specimen collection"
+    },
+    {
+      "type": "PropertyValue",
+      "unitText": "MM/DD/YYYYHH::MM",
+      "name": "Date",
+      "description": "Date of specimen collection"
+    },
+    {
+      "type": "PropertyValue",
+      "unitText": "numeric",
+      "name": "HISTO_result",
+      "description": "Etiology results for organ/tissue/cell examined: See \"Histology_Codes.csv\" for numeric codes"
+    },
+    {
+      "type": "PropertyValue",
+      "unitText": "numeric",
+      "name": "SMEAR_result",
+      "description": "Results from visual inspection of hemolymph smear preparations stained with Geimsa and read with a compound microscope for BCS diagnosis. Numeric results of 0 = BCS negative, 1 = BCS positive, 3=Undetermined, 4=Unreadable slide, 8=slide missing, 7777=no result-smear was made, 9999=no smear made for sample"
+    },
+    {
+      "type": "PropertyValue",
+      "unitText": "numeric",
+      "name": "T_Rating",
+      "description": "T_Rating field has more detail about the cells on the slide for BCS positive samples including Hematodinium stage (T = trophont, P = prespore, D = dinospore) and relative amount of that cell type ranging from 1-5 (1 = up to 10% of cells viewed and 5 = over 90% of cells viewed). T_Rating is not available for samples collected prior to 1999"
+    },
+    {
+      "type": "PropertyValue",
+      "unitText": "numeric",
+      "name": "BCS_PCR_results",
+      "description": "PCR Assay results for BCS diagnosis. Numeric results of 0=BCS negative, 1=BCS positive, 3=inconclusive (ie disagreement at loci, extra band), 4=results pending, 7777=No result-DNA preserved, 9999=No DNA preserved for this sample"
+    },
+    {
+      "type": "PropertyValue",
+      "unitText": "numeric",
+      "name": "Specific_Location",
+      "description": "Specific location of sample collection within LME. See \"Location_Codes.csv\" for numeric codes"
+    },
+    {
+      "type": "PropertyValue",
+      "unitText": "numeric",
+      "name": "General_Location",
+      "description": "General location of sample collection corresponding with LME. See \"Location_Codes.csv\" for numeric codes"
+    },
+    {
+      "type": "PropertyValue",
+      "unitText": null,
+      "name": "ReferenceNO",
+      "description": null
+    },
+    {
+      "type": "PropertyValue",
+      "unitText": "numeric",
+      "name": "C_V_H",
+      "description": "The concatenation of the Cruise, Vessel and Haul for the collection location. For some records that do not have a cruise/vessel/haul, a combination of 0_0_SPNO is used instead to ensure a unique value is used for location data"
+    },
+    {
+      "type": "PropertyValue",
+      "unitText": "numeric",
+      "name": "Cruise",
+      "description": "Cruise ID for Bering Sea/GOA/Atlantic bottom trawl surveys. See RACEBASE or AKFIN for additional NOAA cruise metadata"
+    },
+    {
+      "type": "PropertyValue",
+      "unitText": "numeric",
+      "name": "Vessel",
+      "description": "ID number of the vessel used to collect data for that haul associated with vessel name. See \"Vessel_Codes.csv\" for numeric codes"
+    },
+    {
+      "type": "PropertyValue",
+      "unitText": "numeric",
+      "name": "Haul",
+      "description": "Uniquely identifies a sampling event (haul) within an AFSC cruise. It is a sequential number, in chronological order of occurrence."
+    },
+    {
+      "type": "PropertyValue",
+      "unitText": "numeric/text",
+      "name": "StationID",
+      "description": "Alpha-numeric designation for the station established in the design of AFSC standardized surveys."
+    },
+    {
+      "type": "PropertyValue",
+      "unitText": "numeric",
+      "name": "Stratum",
+      "description": "RACE database statistical area for analyzing data. Strata were designed using bathymetry and other geographic and habitat-related elements. See AKFIN for a complete list of stratum descriptions"
+    },
+    {
+      "type": "PropertyValue",
+      "unitText": "numeric",
+      "name": "LME",
+      "description": "Large marine ecosystem of collection: 1=Bering Sea/Slope, 2=GOA/SEAK, 54=NE Arctic/Chukchi Sea, 55=Beaufort Sea, 65=Aleutian Islands, 80=Atlantic Coast/Newfoundland"
+    },
+    {
+      "type": "PropertyValue",
+      "unitText": "numeric",
+      "name": "Bering_Sea_Regions",
+      "description": null
+    },
+    {
+      "type": "PropertyValue",
+      "unitText": "MM/DD/YYYYHH::MM",
+      "name": "Haul_Date",
+      "description": "The date (MM/DD/YYYY) and time (HH:MM) of the beginning of the haul."
+    },
+    {
+      "type": "PropertyValue",
+      "unitText": "decimalDegree",
+      "name": "Latitude",
+      "description": "Latitude of specimen collection. Designates latitude at start of haul for AFSC standardized surveys"
+    },
+    {
+      "type": "PropertyValue",
+      "unitText": "decimalDegree",
+      "name": "Longitude",
+      "description": "Longitude of specimen collection. Designates longititude at start of haul for AFSC standardized surveys"
+    },
+    {
+      "type": "PropertyValue",
+      "unitText": "meters",
+      "name": "Depth",
+      "description": "Bottom depth"
+    },
+    {
+      "type": "PropertyValue",
+      "unitText": "numeric",
+      "name": "Bottom_Type",
+      "description": "Substrate type recorded during survey: See AFSC Groundfish Survey Codes Bottom Type Code Supplementary Table (Pg 40)"
+    },
+    {
+      "type": "PropertyValue",
+      "unitText": "Degree C",
+      "name": "Bottom_Temp",
+      "description": "Bottom temperature (tenths of a degree Celsius); NA indicates removed or missing values."
+    },
+    {
+      "type": "PropertyValue",
+      "unitText": "Degree C",
+      "name": "Surface_Temp",
+      "description": "Surface temperature (tenths of a degree Celsius); NA indicates removed or missing values."
+    }
+  ],
+  "distribution": [
+    {
+      "type": "DataDownload",
+      "name": "Historic bitter crab syndrome monitoring data",
+      "contentUrl": "https://github.com/Erin-Fedewa-NOAA",
+      "encodingFormat": "csv"
+    }
+  ]
+}
+
+    </script>
+    <style>
+      body {
+        font-size: 16px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        margin: 0 auto;
+        padding: 1rem;
+        max-width: 800px;
+      }
+
+      #map {
+        height: 20rem;
+      }
+
+      #attributes-wrapper,
+      #jsonld-wrapper {
+        height: 20rem;
+        overflow-y: scroll;
+      }
+
+      table {
+        border-collapse: collapse;
+      }
+
+      th {
+        border-bottom: 1px solid black;
+      }
+
+      th, td {
+        padding: 0.25rem;
+      }
+
+      table.listing td {
+        border: 1px solid #CCC;
+      }
+
+      table.listing tr td:first-child {
+          background-color: #EEE;
+      }
+
+      table.listing ul {
+        margin: 0 0 0 1.5rem;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Historic bitter crab syndrome monitoring dataset</h1>
+    <p><strong>Description:</strong> This dataset contains sample collection data for all majid, cancrid and lithodid decapods collected by the NOAA AFSC Pathobiology group from 1978 to 2013</p>
+
+    <h2>Bibliographic</h2>
+
+    <table class="listing">
+      <tr>
+        <td>Published</td>
+        <td>7/25/2022</td>
+      </tr>
+      <tr>
+        <td>Keywords</td>
+        <td>
+          <ul>
+            <li>bitter crab syndrome</li>
+            <li>Bering Sea</li>
+            <li>Gulf of Alaska</li>
+            <li>tanner crab</li>
+            <li>snow crab</li>
+            <li>red king crab</li>
+        </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>Funder</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>License</td>
+        <td></td>
+      </tr>
+    </table>
+
+    <h2>Coverage</h2>
+
+    <h3>Temporal</h3>
+
+    <table class="listing">
+      <tr>
+        <td>Begin</td>
+        <td>1978-06-01</td>
+      </tr>
+      <tr>
+        <td>End</td>
+        <td>2013-10-01</td>
+      </tr>
+    </table>
+
+    <h3>Spatial</h3>
+    <pre><code></code></pre>
+    <div id="map"></div>
+
+    <h2>Attributes</h2>
+
+    <div id="attributes-wrapper">
+      <table id="attributes">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Unit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>SPNO</code></td>
+            <td>Unique specimen ID. First four numbers correspond to year of collection</td>
+            <td>ID Code</td>
+          </tr>
+          <tr>
+            <td><code>Species_Name</code></td>
+            <td>Decapod species sampled</td>
+            <td>text</td>
+          </tr>
+          <tr>
+            <td><code>Sex</code></td>
+            <td>0=NA, 1=Male, 2=Female, 3=Unknown, 4=Hermaphrodite, 5=Transitional, 6=indeterminant</td>
+            <td>numeric</td>
+          </tr>
+          <tr>
+            <td><code>Size</code></td>
+            <td>Carapace length (lithodid) or carapace width (Chioneocetes)</td>
+            <td>millimeter</td>
+          </tr>
+          <tr>
+            <td><code>Chela</code></td>
+            <td>Height at widest point of right chela: males only</td>
+            <td>millimeter</td>
+          </tr>
+          <tr>
+            <td><code>Shell_Condition</code></td>
+            <td>0=premolt/molting, 1=softshell, 2=newshell, 3=oldshell, 4=very oldshell, 5=graveyard, 9=unk</td>
+            <td>numeric</td>
+          </tr>
+          <tr>
+            <td><code>Clutch</code></td>
+            <td>Female egg color, egg condition and clutch size information. See &quot;Clutch_Codes.csv&quot; for numeric codes</td>
+            <td>millimeter</td>
+          </tr>
+          <tr>
+            <td><code>Collection_Comments</code></td>
+            <td>General comments about specimen/nature of collection</td>
+            <td>text</td>
+          </tr>
+          <tr>
+            <td><code>BODYID</code></td>
+            <td>Body location of visual anomaly. See &quot;Histology_Codes.csv&quot; for numeric codes</td>
+            <td>numeric</td>
+          </tr>
+          <tr>
+            <td><code>VISUAL</code></td>
+            <td>Visual anamoly. See &quot;Histology_Codes.csv&quot; for numeric codes</td>
+            <td>numeric</td>
+          </tr>
+          <tr>
+            <td><code>DISTID</code></td>
+            <td>Distibution of physical anomaly. See &quot;Histology_Codes.csv&quot; for numeric codes</td>
+            <td>numeric</td>
+          </tr>
+          <tr>
+            <td><code>Year</code></td>
+            <td>Year of specimen collection</td>
+            <td>numeric</td>
+          </tr>
+          <tr>
+            <td><code>Date</code></td>
+            <td>Date of specimen collection</td>
+            <td>MM/DD/YYYYHH::MM</td>
+          </tr>
+          <tr>
+            <td><code>HISTO_result</code></td>
+            <td>Etiology results for organ/tissue/cell examined: See &quot;Histology_Codes.csv&quot; for numeric codes</td>
+            <td>numeric</td>
+          </tr>
+          <tr>
+            <td><code>SMEAR_result</code></td>
+            <td>Results from visual inspection of hemolymph smear preparations stained with Geimsa and read with a compound microscope for BCS diagnosis. Numeric results of 0 = BCS negative, 1 = BCS positive, 3=Undetermined, 4=Unreadable slide, 8=slide missing, 7777=no result-smear was made, 9999=no smear made for sample</td>
+            <td>numeric</td>
+          </tr>
+          <tr>
+            <td><code>T_Rating</code></td>
+            <td>T_Rating field has more detail about the cells on the slide for BCS positive samples including Hematodinium stage (T = trophont, P = prespore, D = dinospore) and relative amount of that cell type ranging from 1-5 (1 = up to 10% of cells viewed and 5 = over 90% of cells viewed). T_Rating is not available for samples collected prior to 1999</td>
+            <td>numeric</td>
+          </tr>
+          <tr>
+            <td><code>BCS_PCR_results</code></td>
+            <td>PCR Assay results for BCS diagnosis. Numeric results of 0=BCS negative, 1=BCS positive, 3=inconclusive (ie disagreement at loci, extra band), 4=results pending, 7777=No result-DNA preserved, 9999=No DNA preserved for this sample</td>
+            <td>numeric</td>
+          </tr>
+          <tr>
+            <td><code>Specific_Location</code></td>
+            <td>Specific location of sample collection within LME. See &quot;Location_Codes.csv&quot; for numeric codes</td>
+            <td>numeric</td>
+          </tr>
+          <tr>
+            <td><code>General_Location</code></td>
+            <td>General location of sample collection corresponding with LME. See &quot;Location_Codes.csv&quot; for numeric codes</td>
+            <td>numeric</td>
+          </tr>
+          <tr>
+            <td><code>ReferenceNO</code></td>
+            <td>This dataset contains sample collection data for all majid, cancrid and lithodid decapods collected by the NOAA AFSC Pathobiology group from 1978 to 2013</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><code>C_V_H</code></td>
+            <td>The concatenation of the Cruise, Vessel and Haul for the collection location. For some records that do not have a cruise/vessel/haul, a combination of 0_0_SPNO is used instead to ensure a unique value is used for location data</td>
+            <td>numeric</td>
+          </tr>
+          <tr>
+            <td><code>Cruise</code></td>
+            <td>Cruise ID for Bering Sea/GOA/Atlantic bottom trawl surveys. See RACEBASE or AKFIN for additional NOAA cruise metadata</td>
+            <td>numeric</td>
+          </tr>
+          <tr>
+            <td><code>Vessel</code></td>
+            <td>ID number of the vessel used to collect data for that haul associated with vessel name. See &quot;Vessel_Codes.csv&quot; for numeric codes</td>
+            <td>numeric</td>
+          </tr>
+          <tr>
+            <td><code>Haul</code></td>
+            <td>Uniquely identifies a sampling event (haul) within an AFSC cruise. It is a sequential number, in chronological order of occurrence.</td>
+            <td>numeric</td>
+          </tr>
+          <tr>
+            <td><code>StationID</code></td>
+            <td>Alpha-numeric designation for the station established in the design of AFSC standardized surveys.</td>
+            <td>numeric/text</td>
+          </tr>
+          <tr>
+            <td><code>Stratum</code></td>
+            <td>RACE database statistical area for analyzing data. Strata were designed using bathymetry and other geographic and habitat-related elements. See AKFIN for a complete list of stratum descriptions</td>
+            <td>numeric</td>
+          </tr>
+          <tr>
+            <td><code>LME</code></td>
+            <td>Large marine ecosystem of collection: 1=Bering Sea/Slope, 2=GOA/SEAK, 54=NE Arctic/Chukchi Sea, 55=Beaufort Sea, 65=Aleutian Islands, 80=Atlantic Coast/Newfoundland</td>
+            <td>numeric</td>
+          </tr>
+          <tr>
+            <td><code>Bering_Sea_Regions</code></td>
+            <td>This dataset contains sample collection data for all majid, cancrid and lithodid decapods collected by the NOAA AFSC Pathobiology group from 1978 to 2013</td>
+            <td>numeric</td>
+          </tr>
+          <tr>
+            <td><code>Haul_Date</code></td>
+            <td>The date (MM/DD/YYYY) and time (HH:MM) of the beginning of the haul.</td>
+            <td>MM/DD/YYYYHH::MM</td>
+          </tr>
+          <tr>
+            <td><code>Latitude</code></td>
+            <td>Latitude of specimen collection. Designates latitude at start of haul for AFSC standardized surveys</td>
+            <td>decimalDegree</td>
+          </tr>
+          <tr>
+            <td><code>Longitude</code></td>
+            <td>Longitude of specimen collection. Designates longititude at start of haul for AFSC standardized surveys</td>
+            <td>decimalDegree</td>
+          </tr>
+          <tr>
+            <td><code>Depth</code></td>
+            <td>Bottom depth</td>
+            <td>meters</td>
+          </tr>
+          <tr>
+            <td><code>Bottom_Type</code></td>
+            <td>Substrate type recorded during survey: See AFSC Groundfish Survey Codes Bottom Type Code Supplementary Table (Pg 40)</td>
+            <td>numeric</td>
+          </tr>
+          <tr>
+            <td><code>Bottom_Temp</code></td>
+            <td>Bottom temperature (tenths of a degree Celsius); NA indicates removed or missing values.</td>
+            <td>Degree C</td>
+          </tr>
+          <tr>
+            <td><code>Surface_Temp</code></td>
+            <td>Surface temperature (tenths of a degree Celsius); NA indicates removed or missing values.</td>
+            <td>Degree C</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Distribution</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>File</th>
+          <th>Format</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>Historic bitter crab syndrome monitoring data</code></td>
+          <td><code>csv</code></td>
+          <td><a href="https://github.com/Erin-Fedewa-NOAA">Download</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+  integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+  crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+  integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+  crossorigin=""></script>
+    <script>
+      var mymap = L.map('map').setView([61.800085, -156.38675], 1);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+        maxZoom: 18,
+      }).addTo(mymap);
+
+      var polygon = L.polygon([[ 72.0025, -132.8532], [ 51.59767, -132.8532], [ 51.59767, -179.9203], [ 72.0025, -179.9203]]).addTo(mymap);
+    </script>
+  </body>
+</html>
