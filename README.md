@@ -7,25 +7,21 @@ file:///C:/Users/erin.fedewa/Work/Ongoing%20Research/Pathobiology/BCS%20Monitori
 
 **Description:** This dataset contains sample collection data for all
 majid, cancrid and lithodid decapods collected by the NOAA AFSC
-Pathobiology group from 1978 to 2013
+Pathobiology group from 1978 to 2013. Data includes results from histology, blood smears and PCR for disease diagnosis and staging 
 
 Bibliographic
 -------------
 
-+-----------------------------------+-----------------------------------+
+
 | Published                         | 7/25/2022                         |
-+-----------------------------------+-----------------------------------+
+|----------------------------------+------------------------------------|
 | Keywords                          | -   bitter crab syndrome          |
 |                                   | -   Bering Sea                    |
 |                                   | -   Gulf of Alaska                |
 |                                   | -   tanner crab                   |
 |                                   | -   snow crab                     |
 |                                   | -   red king crab                 |
-+-----------------------------------+-----------------------------------+
-| Funder                            |                                   |
-+-----------------------------------+-----------------------------------+
-| License                           |                                   |
-+-----------------------------------+-----------------------------------+
+
 
 Coverage
 --------
