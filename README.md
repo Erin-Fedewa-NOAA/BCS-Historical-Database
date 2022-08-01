@@ -51,7 +51,7 @@ Attributes
 | ------- | ---------------- | ---------- |
 
 
-  `SPNO`                  Unique specimen ID. First four numbers correspond to year of collection                                                                                                                                                                                                                                                                                  ID Code
+ | `SPNO` | Unique specimen ID. First four numbers correspond to year of collection  |   ID Code
   `Species_Name`          Decapod species sampled                                                                                                                                                                                                                                                                                                                                  text
   `Sex`                   0=NA, 1=Male, 2=Female, 3=Unknown, 4=Hermaphrodite, 5=Transitional, 6=indeterminant                                                                                                                                                                                                                                                                      numeric
   `Size`                  Carapace length (lithodid) or carapace width (Chioneocetes)                                                                                                                                                                                                                                                                                              millimeter
