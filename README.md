@@ -12,6 +12,10 @@ Pathobiology group from 1978 to 2013. Data includes results from histology, bloo
 Bibliographic
 -------------
 
+| Published     | 7/25/2022   |
+| ------------- | ------------- |
+| Keywords      | bitter crab syndrome  |
+
 
 | Published                         | 7/25/2022                         |
 |----------------------------------+------------------------------------|
