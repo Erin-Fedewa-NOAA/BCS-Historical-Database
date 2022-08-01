@@ -14,7 +14,9 @@ Bibliographic
 
 | Published     | 7/25/2022   |
 | ------------- | ------------- |
-| Keywords      | bitter crab syndrome  |
+| Keywords      | bitter crab syndrome |
+|               |   Bering Sea |
+|               |  Gulf of Alaska |
 
 
 | Published                         | 7/25/2022                         |
