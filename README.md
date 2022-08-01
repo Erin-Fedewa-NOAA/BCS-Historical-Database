@@ -26,16 +26,23 @@ Coverage
 ### Temporal
 
 | Begin    | 1978-06-01 |
-| ------------- | ------------- |
-| End     | 2013-10-01 |
-| ------------- | ------------- |
+| ------------- | ------|
+| End   | 2013-10-01 |
+
  
  
 
 ### Spatial
 
-::: {#map}
-:::
+| LME     |                     |
+| ------------- | ------------- |
+|                | Bering Sea |
+|               |   Gulf of Alaska |
+|               |  NBS/Chukchi Sea |
+|               | Beaufort Sea |
+|               | Aleutian Islands |
+|               | Atlantic Coast/Newfoundland |
+
 
 Attributes
 ----------
