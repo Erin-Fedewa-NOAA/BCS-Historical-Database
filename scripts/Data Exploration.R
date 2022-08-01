@@ -1,9 +1,9 @@
 # notes ----
 #Data exploration: Spatiotemporal footprint of BCS data collection efforts by 
-  #AFSC pathobiology program (pre-2014 development of Bering Sea index sites)
+  #AFSC pathobiology program (1978-2013)
 
 # Author: Erin Fedewa
-# last updated: 2022/7/24
+# last updated: 2022/8/1
 
 # load ----
 library(tidyverse)
@@ -49,27 +49,63 @@ BCSdat %>%
          BCS_PCR_results %in% 0:1) %>%
   count(Year, Species_Name, name = "pcr_0_1")) %>%
   arrange(Year, Species_Name)
-#Mostly bairdi, started PCR in 2003 
+#Mostly C. bairdi, started PCR in 2003 
 
-#Spatial coverage of bairdi sampling 
-  #Spatial maps of diagnosis 
+#Plot sample sizes 
+BCSdat %>%
+  filter(LME == 2,
+         SMEAR_result %in% 0:1 | BCS_PCR_results %in% 0:1) %>% 
+  group_by(Year, LME, Species_Name) %>% 
+  count() %>%
+  print(n=170) %>%
+  ggplot(aes(fill=Species_Name, y=n, x=Year)) +
+  geom_bar(position="stack", stat="identity") +
+  theme_bw()
+ggsave("./output/GOA_species_n_timeseries.png")
+
+#Spatial coverage of C. bairdi sampling 
+
+#Basemaps
+usa <- raster::getData("GADM", country = c("USA"), level = 1, path = "./data")
+can <- raster::getData("GADM", country = c("CAN"), level = 1, path = "./data")
+  
+#C. bairdi sample size by year plot
+BCSdat %>% 
+  filter(LME == 2,
+         Species_Name == "Chionoecetes bairdi",
+         !is.na(Latitude), !is.na(Longitude),
+         SMEAR_result %in% 0:1 | BCS_PCR_results %in% 0:1) %>%
+  group_by(Year, Latitude, Longitude) %>%
+  summarise(Sample_size=n()) %>%
+  ggplot() + 
+  geom_polygon(data = usa, aes(x = long, y = lat, group = group))+
+  geom_point(aes(x = Longitude, y = Latitude, size=Sample_size), color= "light blue")+
+  coord_quickmap(xlim = c(-168, -132), ylim = c(53, 60.5)) +
+  theme_bw() +
+  facet_wrap(~Year)
+ggsave("./output/GOA_bairdi_n_timeseries.png")
+  
+#C. bairdi BCS diagnosis by year plot 
 BCSdat %>%
   filter(LME == 2,
          Species_Name == "Chionoecetes bairdi",
          !is.na(Latitude), !is.na(Longitude)) %>% 
   mutate(Diagnosis = ifelse(SMEAR_result==0 |BCS_PCR_results==0, "BCS_Neg",
                             ifelse(SMEAR_result==1 |BCS_PCR_results==1, "BCS_Pos",NA)))%>%
-           filter(!(is.na(Diagnosis))) -> plot
+  filter(!(is.na(Diagnosis))) -> plot
 
-#Only if using geom_sf to map
-#dat <- st_as_sf(test, coords = c("Latitude", "Longitude"))
-#ph_basemap <- get_map(location=c(-163,54,-134,59), source = 'osm')
-
-  #Basemaps
-usa <- raster::getData("GADM", country = c("USA"), level = 1, path = "./data")
-can <- raster::getData("GADM", country = c("CAN"), level = 1, path = "./data")
-
-#GOA/SEAK Tanner spatial prevalence across all years 
+#Faceted by year  
+plot %>%
+  ggplot() + 
+  geom_polygon(data = usa, aes(x = long, y = lat, group = group))+
+  geom_point(aes(x = Longitude, y = Latitude, fill=Diagnosis, color=Diagnosis))+
+  coord_quickmap(xlim = c(-168, -132), ylim = c(53, 60.5)) +
+  scale_colour_manual(values = c("grey","red")) +
+  theme_bw() +
+  facet_wrap(~Year)
+ggsave("./output/GOA_bairdi_BCSprev_timeseries.png")
+  
+#Gif by year
 plot %>%
   ggplot() + 
     geom_polygon(data = usa, aes(x = long, y = lat, group = group))+
@@ -80,67 +116,219 @@ plot %>%
     #animate by year
     transition_states(as.factor(Year), wrap=FALSE) +
     labs(x = "Longitude", y = "Latitude", title = "{closest_state}") 
-     
-anim_save("./output/GOA_BCSprev_timeseries.gif")
-#could also transition through years and facet by LME with bering and gulf!
-#try size=N in geom point 
+anim_save("./output/GOA_bairdi_BCSprev_gif.gif")
 
 ####################################
-#Read in Sean shape files and use geom_sf + geom_point 
+#Bering Sea data exploration
 
-EBSgrid_layer <- readOGR(dsn=survey_gdb,layer="EBS_grid")
-BBsurveystrata_layer <- readOGR(dsn=survey_gdb,layer="BristolBaySurveyStrata")
-Pribsurveystrata_layer <- readOGR(dsn=survey_gdb,layer="PribilofIslandSurveyStrata")
-StMattsurveystrata_layer <- readOGR(dsn=survey_gdb,layer="StMatthewSurveyStrata")
-NBSgrid_layer <- readOGR(dsn=survey_gdb,layer="NBS_grid")
-NortonSound <- readOGR(dsn=survey_gdb,layer="NortonSound44")
-
-#Bering Sea sample sizes by species and year
+#Sample # of PCR and smear reads by year/species 
 BCSdat %>%
-  filter(LME == 1) %>% 
+  filter(LME==1,
+         SMEAR_result %in% 0:1) %>%
+  count(Year, Species_Name, name = "smear_0_1") %>%
+  full_join(BCSdat %>%
+              filter(LME==1,
+                     BCS_PCR_results %in% 0:1) %>%
+              count(Year, Species_Name, name = "pcr_0_1")) %>%
+  arrange(Year, Species_Name) 
+#Mostly C. bairdi/opilio, started PCR in 2003
+
+#Plot sample sizes 
+BCSdat %>%
+  filter(LME == 1,
+         SMEAR_result %in% 0:1 | BCS_PCR_results %in% 0:1) %>% 
   group_by(Year, LME, Species_Name) %>% 
   count() %>%
   print(n=170) %>%
   ggplot(aes(fill=Species_Name, y=n, x=Year)) +
-  geom_bar(position="stack", stat="identity")
+    geom_bar(position="stack", stat="identity") +
+  theme_bw()
+ggsave("./output/BS_species_n_timeseries.png")
 
 #BCS diagnosis (+/-/NA) in Bering Sea by year
 BCSdat %>%
   filter(LME == 1) %>% 
   mutate(Diagnosis = ifelse(SMEAR_result==0 |BCS_PCR_results==0, "BCS_Neg",
-                              ifelse(SMEAR_result==1 |BCS_PCR_results==1, "BCS_Pos",NA)))%>%
+                            ifelse(SMEAR_result==1 |BCS_PCR_results==1, "BCS_Pos",NA)))%>%
   group_by(Year) %>%
   ggplot(aes(x=Year, group=Diagnosis, fill=Diagnosis)) +
-    geom_histogram(position="stack", binwidth = .5) #Lots of NA's! 
-  
-#Spatial maps of diagnosis 
+  geom_histogram(position="stack", binwidth = .5) +
+  theme_bw() #Lots of NA's! 
+
+#Spatial coverage of C. bairdi/opilio sampling 
+
+#Basemaps
+usa <- raster::getData("GADM", country = c("USA"), level = 1, path = "./data")
+can <- raster::getData("GADM", country = c("CAN"), level = 1, path = "./data")
+
+#######
+
+#C. bairdi sample size by year plot
+BCSdat %>% 
+  filter(LME == 1,
+         Species_Name == "Chionoecetes bairdi",
+         !is.na(Latitude), !is.na(Longitude),
+         SMEAR_result %in% 0:1 | BCS_PCR_results %in% 0:1) %>%
+  group_by(Year, Latitude, Longitude) %>%
+  summarise(Sample_size=n()) %>%
+  ggplot() + 
+  geom_polygon(data = usa, aes(x = long, y = lat, group = group))+
+  geom_point(aes(x = Longitude, y = Latitude, size=Sample_size), color= "light blue")+
+  coord_quickmap(xlim = c(-179, -158), ylim = c(53, 64)) +
+  theme_bw() +
+  facet_wrap(~Year)
+ggsave("./output/EBS_bairdi_n_timeseries.png")
+
+#C. bairdi BCS diagnosis by year plot 
 BCSdat %>%
   filter(LME == 1,
+         Species_Name == "Chionoecetes bairdi",
          !is.na(Latitude), !is.na(Longitude)) %>% 
   mutate(Diagnosis = ifelse(SMEAR_result==0 |BCS_PCR_results==0, "BCS_Neg",
-                            ifelse(SMEAR_result==1 |BCS_PCR_results==1, "BCS_Pos",NA))) ->test
+                            ifelse(SMEAR_result==1 |BCS_PCR_results==1, "BCS_Pos",NA)))%>%
+  filter(!(is.na(Diagnosis))) -> plot
 
-dat <- st_as_sf(test, coords = c("Latitude", "Longitude"))
-
-  ggplot(dat, aes(geometry=geometry)) + 
+#Faceted by year  
+plot %>%
+  ggplot() + 
+  geom_polygon(data = usa, aes(x = long, y = lat, group = group))+
+  geom_point(aes(x = Longitude, y = Latitude, fill=Diagnosis, color=Diagnosis))+
+  coord_quickmap(xlim = c(-179, -158), ylim = c(53, 64)) +
+  scale_colour_manual(values = c("grey","red")) +
   theme_bw() +
-  geom_sf(aes(fill = Diagnosis), colour = "dark grey") + 
-  scale_x_continuous(name = "Longitude") +
-  scale_y_continuous(name = "Latitude") +
-  labs(fill = "Diagnosis") +
   facet_wrap(~Year)
+ggsave("./output/EBS_bairdi_BCSprev_timeseries.png")
+
+#######
+
+#C. opilio sample size by year plot
+BCSdat %>% 
+  filter(LME == 1,
+         Species_Name == "Chionoecetes opilio",
+         !is.na(Latitude), !is.na(Longitude),
+         SMEAR_result %in% 0:1 | BCS_PCR_results %in% 0:1) %>%
+  group_by(Year, Latitude, Longitude) %>%
+  summarise(Sample_size=n()) %>%
+  ggplot() + 
+  geom_polygon(data = usa, aes(x = long, y = lat, group = group))+
+  geom_point(aes(x = Longitude, y = Latitude, size=Sample_size), color= "light blue")+
+  coord_quickmap(xlim = c(-179, -158), ylim = c(53, 64)) +
+  theme_bw() +
+  facet_wrap(~Year)
+ggsave("./output/EBS_opilio_n_timeseries.png")
+
+
+#C. opilio BCS diagnosis by year plot 
+BCSdat %>%
+  filter(LME == 1,
+         Species_Name == "Chionoecetes opilio",
+         !is.na(Latitude), !is.na(Longitude)) %>% 
+  mutate(Diagnosis = ifelse(SMEAR_result==0 |BCS_PCR_results==0, "BCS_Neg",
+                            ifelse(SMEAR_result==1 |BCS_PCR_results==1, "BCS_Pos",NA)))%>%
+  filter(!(is.na(Diagnosis))) -> plot
+
+#Faceted by year  
+plot %>%
+  ggplot() + 
+  geom_polygon(data = usa, aes(x = long, y = lat, group = group))+
+  geom_point(aes(x = Longitude, y = Latitude, fill=Diagnosis, color=Diagnosis))+
+  coord_quickmap(xlim = c(-179, -158), ylim = c(53, 64)) +
+  scale_colour_manual(values = c("grey","red")) +
+  theme_bw() +
+  facet_wrap(~Year)
+ggsave("./output/EBS_opilio_BCSprev_timeseries.png")
+
+####################################
+#NBS/Chukchi/Beaufort data exploration
+
+#Sample # of PCR and smear reads by year/species 
+BCSdat %>%
+  filter(LME %in% 54:55,
+         SMEAR_result %in% 0:1) %>%
+  count(Year, Species_Name, name = "smear_0_1") %>%
+  full_join(BCSdat %>%
+              filter(LME %in% 54:55,
+                     BCS_PCR_results %in% 0:1) %>%
+              count(Year, Species_Name, name = "pcr_0_1")) %>%
+  arrange(Year, Species_Name) 
+#C. opilio and Hyas, started PCR in 2005
+
+#Plot sample sizes 
+BCSdat %>%
+  filter(LME %in% 54:55,
+         SMEAR_result %in% 0:1 | BCS_PCR_results %in% 0:1) %>% 
+  group_by(Year, LME, Species_Name) %>% 
+  count() %>%
+  print(n=170) %>%
+  ggplot(aes(fill=Species_Name, y=n, x=Year)) +
+  geom_bar(position="stack", stat="identity") +
+  theme_bw()
+ggsave("./output/Arctic_species_n_timeseries.png")
+
+#C. opilio sample size by year plot
+BCSdat %>% 
+  filter(LME %in% 54:55,
+         Species_Name == "Chionoecetes opilio",
+         !is.na(Latitude), !is.na(Longitude),
+         SMEAR_result %in% 0:1 | BCS_PCR_results %in% 0:1) %>%
+  group_by(Year, Latitude, Longitude) %>%
+  summarise(Sample_size=n()) %>%
+  ggplot() + 
+  geom_polygon(data = usa, aes(x = long, y = lat, group = group))+
+  geom_point(aes(x = Longitude, y = Latitude, size=Sample_size), color= "light blue")+
+  coord_quickmap(xlim = c(-177, -153), ylim = c(61, 73)) +
+  theme_bw() +
+  facet_wrap(~Year)
+ggsave("./output/Arctic_opilio_n_timeseries.png")
+
+
+#C. opilio BCS diagnosis by year plot 
+BCSdat %>%
+  filter(LME %in% 54:55,
+         Species_Name == "Chionoecetes opilio",
+         !is.na(Latitude), !is.na(Longitude)) %>% 
+  mutate(Diagnosis = ifelse(SMEAR_result==0 |BCS_PCR_results==0, "BCS_Neg",
+                            ifelse(SMEAR_result==1 |BCS_PCR_results==1, "BCS_Pos",NA)))%>%
+  filter(!(is.na(Diagnosis))) -> plot
+
+#Faceted by year  
+plot %>%
+  ggplot() + 
+  geom_polygon(data = usa, aes(x = long, y = lat, group = group))+
+  geom_point(aes(x = Longitude, y = Latitude, fill=Diagnosis, color=Diagnosis))+
+  coord_quickmap(xlim = c(-177, -153), ylim = c(61, 73)) +
+  scale_colour_manual(values = c("grey","red")) +
+  theme_bw() +
+  facet_wrap(~Year)
+ggsave("./output/Arctic_opilio_BCSprev_timeseries.png")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
   
 
 
 
-#Smear vrs PCR data
 
-
-#Spatial footprint of GOA
-  #Write up metadata/protocols for data collection 
-  
-  library(dataspice)
-create_spice(dir="./")
 
 
 
